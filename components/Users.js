@@ -179,7 +179,7 @@ const Users = () => {
             maxToRenderPerBatch={5}
             enableEmptySections={true}
             ListFooterComponent={renderFooter}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item, index) => item.id.toString()}
             renderItem={renderItem}
             ListHeaderComponent={
               <SearchBar
