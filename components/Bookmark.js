@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -26,6 +26,10 @@ const Bookmark = () => {
       payload: item,
     });
   };
+
+  useEffect(() => {
+    handleSearch();
+  }, [bookmarked]);
 
   const handleSearch = text => {
     if (text) {
@@ -84,7 +88,7 @@ const Bookmark = () => {
       <View>
         {bookmarked.length !== 0 ? (
           <FlatList
-            data={bookmarked}
+            data={bookmarked && data}
             keyExtractor={(item, index) => item.id.toString()}
             renderItem={renderItem}
             ListHeaderComponent={
